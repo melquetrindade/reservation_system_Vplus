@@ -1,0 +1,192 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum DisponibilidadeStatus {
+  LIVRE
+  RESERVADO
+  BLOQUEADO
+}
+
+enum AgendamentoStatus {
+  AGENDADO
+  CANCELADO
+  FINALIZADO
+}
+
+model User {
+  id            String        @id @default(uuid())
+  name          String?
+  email         String        @unique
+  emailVerified DateTime?
+  telefone      String?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  agendamentos  Agendamento[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("usuarios")
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+model Barbearia {
+  id       String  @id @default(uuid())
+  nome     String
+  endereco String
+  imgURL   String?
+
+  administradores Administrador[]
+  profissionais   Profissional[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("barbearias")
+}
+
+model Administrador {
+  id String @id @default(uuid())
+
+  nome   String
+  email  String  @unique
+  imgURL String?
+  role   String
+
+  barbeariaId String
+  barbearia   Barbearia @relation(fields: [barbeariaId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("administradores")
+}
+
+model Profissional {
+  id String @id @default(uuid())
+
+  nome           String
+  imgURL         String?
+  imgURLPublicId String?
+  telefone       String?
+  ativo          Boolean @default(true)
+
+  barbeariaId String
+  barbearia   Barbearia @relation(fields: [barbeariaId], references: [id], onDelete: Cascade)
+
+  servicos         Servico[]
+  disponibilidades Disponibilidade[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("profissionais")
+}
+
+model Servico {
+  id String @id @default(uuid())
+
+  nome           String
+  descricao      String?
+  tempo          String?
+  imgURL         String?
+  imgURLPublicId String?
+  preco          Decimal @db.Decimal(10, 2)
+  ativo          Boolean @default(true)
+
+  profissionalId String
+  profissional   Profissional @relation(fields: [profissionalId], references: [id], onDelete: Cascade)
+
+  agendamentos Agendamento[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("servicos")
+}
+
+model Disponibilidade {
+  id String @id @default(uuid())
+
+  data       DateTime
+  horaInicio DateTime
+  horaFim    DateTime
+  status     DisponibilidadeStatus @default(LIVRE)
+
+  profissionalId String
+  profissional   Profissional @relation(fields: [profissionalId], references: [id], onDelete: Cascade)
+
+  agendamentos Agendamento[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("disponibilidades")
+}
+
+model Agendamento {
+  id String @id @default(uuid())
+
+  status AgendamentoStatus @default(AGENDADO)
+
+  usuarioId String
+  usuario   User   @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  servicoId String
+  servico   Servico @relation(fields: [servicoId], references: [id], onDelete: Cascade)
+
+  disponibilidadeId String
+  disponibilidade   Disponibilidade @relation(fields: [disponibilidadeId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("agendamentos")
+}
