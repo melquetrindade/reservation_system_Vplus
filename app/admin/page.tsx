@@ -4,7 +4,7 @@ import ButtonSignin from "../_components/admin/button-signin";
 
 export default function Admin() {
   return (
-    <div className="w-full min-h-screen items-center flex justify-center bg-primary">
+    <div className="w-full min-h-screen items-center flex justify-center">
       <Card className="w-[80%] lg:w-[40%]">
         <CardContent className="justify-center flex flex-col items-center py-4">
           <div className="relative h-25 w-23">
@@ -16,11 +16,11 @@ export default function Admin() {
             />
           </div>
 
-          <h1 className="font-bold text-xl text-primary mt-6 uppercase">
+          <h1 className="font-bold text-xl mt-6 uppercase">
             Bem-vindo
           </h1>
 
-          <p className="font-semibold text-xs text-primary">
+          <p className="font-semibold text-xs text-gray-400">
             Faça login para acessar a área administrativa
           </p>
 

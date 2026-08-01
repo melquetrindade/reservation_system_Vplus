@@ -11,8 +11,8 @@ interface ProfessioanlItemProps {
 const ProfessionalItem = ({professional}: ProfessioanlItemProps) => {
 
     return (
-        <Card className="min-w-41.75 rounded-2xl border-secondary bg-white ring-0">
-            <CardContent>
+        <Card className="min-w-41.75 rounded-2xl border-secondary bg-secondary ring-0 pt-0">
+            <CardContent className="w-full px-1 pt-1">
                 
                 {/*Imagem */}
                 <div className="relative h-44.75 w-full">

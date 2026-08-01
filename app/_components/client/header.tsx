@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <Card className="rounded-none ring-0 bg-primary pt-2 pb-2 lg:hidden">
+        <Card className="rounded-none ring-0 pt-2 pb-2 lg:hidden">
             <CardContent className="flex flex-row items-center justify-between">
                 <div className="relative h-13 w-11">
                     <Link href="/">
@@ -22,7 +22,7 @@ const Header = () => {
                 </div>
             <Sheet>
                 <SheetTrigger>
-                <Button size="icon" variant="outline">
+                <Button size="icon" variant="secondary">
                     <MenuIcon />
                 </Button>
                 </SheetTrigger>

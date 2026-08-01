@@ -99,14 +99,14 @@ const ListAdmin = () => {
                         {Array.from({ length: 3 }).map((_, index) => (
                             <div className="flex flex-row gap-2 w-full">
                                 <div key={index} className="flex flex-col justify-start w-[75%] gap-3">
-                                    <Skeleton className="ml-10 h-12.5 w-15 flex items-center justify-center rounded-2xl bg-gray-200" />
-                                    <Skeleton className="h-4 w-40 flex items-center justify-center rounded-2xl bg-gray-200" />
-                                    <Skeleton className="h-4 w-40 bg-gray-200" />
+                                    <Skeleton className="ml-10 h-12.5 w-15 flex items-center justify-center rounded-sm bg-secondary" />
+                                    <Skeleton className="h-4 w-40 bg-secondary" />
+                                    <Skeleton className="h-4 w-40 bg-secondary" />
                                 </div>
 
                                 <div className="py-3 px-1 flex flex-row items-end gap-3">
-                                    <Skeleton className="h-25 w-15 flex items-center justify-center rounded-2xl bg-gray-200" />
-                                    <Skeleton className="h-25 w-15 bg-gray-200" />
+                                    <Skeleton className="h-25 w-15 bg-secondary" />
+                                    <Skeleton className="h-25 w-15 bg-secondary" />
                                 </div>
                             </div>
                         ))}
@@ -123,7 +123,7 @@ const ListAdmin = () => {
                     ))}
                 </div>
             ) : (
-                <h1>Não existem administradores</h1>
+                <h1 className="text-xs font-bold uppercase text-gray-400">Não existem administradores cadastrados</h1>
             )}
 
             <Dialog
@@ -154,3 +154,7 @@ const ListAdmin = () => {
 }
  
 export default ListAdmin;
+
+/*
+<h1 className="text-xs font-bold uppercase text-gray-400">Não existem administradores cadastrados</h1>
+*/

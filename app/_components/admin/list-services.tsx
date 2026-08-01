@@ -102,12 +102,12 @@ const ListServices = ({ id }: ListServicesProps) => {
 
   return (
     <div className="p-5">
-      <div className="flex items-center justify-between mb-7">
+      <div className="flex items-center justify-between mb-7 gap-3">
         { loading ? (
-          <Skeleton className="h-4 w-40 bg-gray-200" />
+          <Skeleton className="h-4 w-40 bg-secondary" />
         ) : nameProfessional && (
           <div>
-            <h1 className="font-semibold text-sm">Serviços de {nameProfessional}</h1>
+            <h1 className="font-semibold text-sm text-white">Serviços de {nameProfessional}</h1>
           </div>
         )}
         
@@ -122,12 +122,12 @@ const ListServices = ({ id }: ListServicesProps) => {
           <div className="grid grid-cols-2 gap-4 mb-10">
               {Array.from({ length: 3 }).map((_, index) => (
                   <div key={index} className="flex flex-col items-center gap-2 min-w-30">
-                      <Skeleton className="h-44.75 w-41.75 rounded-2xl bg-gray-200" />
-                      <Skeleton className="h-4 w-40 bg-gray-200" />
+                      <Skeleton className="h-44.75 w-41.75 rounded-2xl bg-secondary" />
+                      <Skeleton className="h-4 w-40 bg-secondary" />
                       <div className="flex justify-center gap-3">
-                        <Skeleton className="h-4 w-11 bg-gray-200" />
-                        <Skeleton className="h-4 w-11 bg-gray-200" />
-                        <Skeleton className="h-4 w-11 bg-gray-200" />
+                        <Skeleton className="h-4 w-11 bg-secondary" />
+                        <Skeleton className="h-4 w-11 bg-secondary" />
+                        <Skeleton className="h-4 w-11 bg-secondary" />
                       </div>
                   </div>
               ))}
@@ -144,7 +144,7 @@ const ListServices = ({ id }: ListServicesProps) => {
           ))}
         </div>
       ) : (
-        <p>Este profissional não tem serviços cadastrados</p>
+        <p className="text-xs font-bold uppercase text-gray-400">Este profissional não tem serviços cadastrados</p>
       )}
 
       <Dialog
@@ -178,3 +178,7 @@ const ListServices = ({ id }: ListServicesProps) => {
 };
 
 export default ListServices;
+
+/*
+<p className="text-xs font-bold uppercase text-gray-400">Este profissional não tem serviços cadastrados</p>
+*/

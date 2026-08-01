@@ -273,6 +273,7 @@ const ShowSchedulesAgenda = ({selectedDay, disponibilidade, setDisponibilidade, 
                                 <FieldContent>
                                     <Input
                                     type="time"
+                                    className="[&::-webkit-calendar-picker-indicator]:invert"
                                     {...form.register("horaInicio")}
                                     />
                                 </FieldContent>

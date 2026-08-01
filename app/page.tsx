@@ -18,7 +18,7 @@ export default async function Home() {
         <Header/>
 
         {/*Mensagem de boas-vindas */}
-        <div className="p-5 border border-b border-gray-300 lg:flex lg:flex-col lg:items-end lg:pr-7">
+        <div className="p-5 lg:flex lg:flex-col lg:items-end lg:pr-7">
           <h2 className="text-xl font-bold">
             Olá, {session?.user ? session.user.name : "bem-vindo"}!
           </h2>

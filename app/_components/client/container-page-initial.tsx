@@ -95,9 +95,9 @@ const ContainerPageInitial = () => {
     return (
         <div className="p-5">
             {/* Banner da barbearia */}
-            <div className="h-55 w-full flex justify-center mt-3 lg:w-full lg:h-70 lg:justify-start">
+            <div className="h-55 w-full flex justify-center lg:w-full lg:h-70 lg:justify-start">
                 {loading || !barbearia ? (
-                    <Skeleton className="h-full w-full rounded-xl bg-gray-200 lg:w-[50%]"/>
+                    <Skeleton className="h-full w-full rounded-xl bg-secondary lg:w-[50%]"/>
                 ) : (
                     <div className="relative flex h-full w-full items-end lg:w-[50%]">
                         <Image
@@ -107,7 +107,7 @@ const ContainerPageInitial = () => {
                             className="rounded-xl object-cover object-top"
                         />
 
-                        <Card className="z-50 mx-5 mb-3 w-full rounded-xl bg-white">
+                        <Card className="z-50 mx-5 mb-3 w-full rounded-xl bg-secondary/80">
                             <CardContent className="flex items-center gap-3 px-5">
                                 <div>
                                     <h3 className="font-bold">{barbearia.nome}</h3>
@@ -122,17 +122,13 @@ const ContainerPageInitial = () => {
             {/*Agendamentos Confirmados */}
             {loadingAgendamentos ? (
                 <>
-                    <Skeleton className="mb-3 mt-6 h-4 w-24 uppercase bg-gray-200" />
+                    <Skeleton className="mb-3 mt-6 h-4 w-34 uppercase bg-secondary rounded-sm"/>
                     <div className="gap-3 flex overflow-x-auto [&::-webkit-scrollbar]:hidden">
                         {Array.from({ length: 2 }).map((_, index) => (
-                            <div key={index} className="flex justify-between min-w-[90%] bg-gray-200">
-                                <div className="flex flex-col items-center gap-2">
-                                    <Skeleton className="h-5 w-10 bg-gray-200" />
-                                    <Skeleton className="h-4 w-10 bg-gray-200" />
-                                    <Skeleton className="h-3 w-10 bg-gray-200" />
+                            <div key={index} className="flex justify-between min-w-[90%] bg-secondary rounded-sm">
+                                <div className="flex h-15 w-10 flex-col items-center gap-2">
                                 </div>
                             </div>
-                            
                         ))}
                     </div>
                 </>
@@ -152,13 +148,13 @@ const ContainerPageInitial = () => {
             {/* Profissionais */}
             {loading ? (
                 <>
-                    <Skeleton className="mb-3 mt-6 h-4 w-24 uppercase bg-gray-200" />
-                    <div className="flex gap-4 overflow-auto mb-10 [&::-webkit-scrollbar]:hidden">
+                    <Skeleton className="mb-3 mt-6 h-4 w-34 uppercase bg-secondary" />
+                    <div className="flex gap-9 overflow-auto mb-10 [&::-webkit-scrollbar]:hidden">
                         {Array.from({ length: 3 }).map((_, index) => (
                             <div key={index} className="flex flex-col items-center gap-2 min-w-30">
-                                <Skeleton className="h-25 w-25 rounded-full bg-gray-200" />
-                                <Skeleton className="h-4 w-20 bg-gray-200" />
-                                <Skeleton className="h-3 w-24 bg-gray-200" />
+                                <Skeleton className="h-35 w-30 bg-secondary" />
+                                <Skeleton className="h-3 w-20 bg-secondary" />
+                                <Skeleton className="h-3 w-30 bg-secondary" />
                             </div>
                         ))}
                     </div>
@@ -176,11 +172,9 @@ const ContainerPageInitial = () => {
                 </>
                  
             ) : (
-                <h2 className="mt-6">Este salão de beleza ainda não possui profissionais</h2>
+                <h2 className="mt-6 flex justify-center text-xs font-bold uppercase text-gray-400">Esta barbearia ainda não possui profissionais</h2>
             )}
         </div>
-        
-        
     );
 }
  

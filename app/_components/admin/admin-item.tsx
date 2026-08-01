@@ -109,7 +109,7 @@ const AdminItem = ({admin, setAdministrators}: AdminItemProps) => {
     };
 
     return (
-        <Card className="w-full rounded-2xl bg-white">
+        <Card className="w-full rounded-2xl bg-secondary">
             <CardContent className="flex flex-row gap-2 w-full">
 
                 <div className="flex flex-col justify-start w-[75%]">
@@ -120,8 +120,8 @@ const AdminItem = ({admin, setAdministrators}: AdminItemProps) => {
 
                     {/*Texto */}
                     <div className="py-3 px-1 flex flex-col items-start gap-1">
-                        <h3 className="truncate font-semibold">{admin.nome}</h3>
-                        <p className="truncate text-sm text-muted-foreground">{admin.email}</p>
+                        <h3 className="truncate font-semibold text-white">{admin.nome}</h3>
+                        <p className="truncate text-sm text-gray-400">{admin.email}</p>
                     </div>
                 </div>
                 

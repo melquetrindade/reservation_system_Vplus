@@ -36,8 +36,8 @@ const ActionsProfessionals = ({
     return (
         <div className="w-full">
           
-          <Button className="w-full bg-gray-200" variant={null}>
-            <Link href={`/admin/calendar/${professionalId}`} className="text-gray-500">Ver agenda</Link>
+          <Button className="w-full text-white" variant="default">
+            <Link href={`/admin/calendar/${professionalId}`}>Ver agenda</Link>
           </Button>
 
           <div className="flex flex-row justify-between gap-2 w-full mt-2 pr-1">
@@ -117,7 +117,7 @@ const ActionsProfessionals = ({
 
             
           </div>
-          <Button className="w-full mt-2" variant="outline">
+          <Button className="w-full mt-2 border-white border text-white" variant={null}>
             <Link href={`/admin/service/${professionalId}`}>Serviços</Link>
           </Button>
         </div>

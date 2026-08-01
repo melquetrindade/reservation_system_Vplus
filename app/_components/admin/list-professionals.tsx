@@ -105,20 +105,20 @@ const ListProfessionals = () => {
           <div className="grid grid-cols-2 gap-4 mb-10">
               {Array.from({ length: 3 }).map((_, index) => (
                   <div key={index} className="flex flex-col items-center gap-2 min-w-30">
-                      <Skeleton className="h-44.75 w-41.75 rounded-2xl bg-gray-200" />
-                      <Skeleton className="h-4 w-40 bg-gray-200" />
+                      <Skeleton className="h-44.75 w-41.75 rounded-2xl bg-secondary" />
+                      <Skeleton className="h-4 w-40 bg-secondary" />
                       <div className="flex justify-center gap-3">
-                        <Skeleton className="h-4 w-11 bg-gray-200" />
-                        <Skeleton className="h-4 w-11 bg-gray-200" />
-                        <Skeleton className="h-4 w-11 bg-gray-200" />
+                        <Skeleton className="h-4 w-11 bg-secondary" />
+                        <Skeleton className="h-4 w-11 bg-secondary" />
+                        <Skeleton className="h-4 w-11 bg-secondary" />
                       </div>
-                      <Skeleton className="h-4 w-40 bg-gray-200" />
+                      <Skeleton className="h-4 w-40 bg-secondary" />
                   </div>
               ))}
           </div>
         </>
       ) : professionals.length == 0 ? (
-        <h1>Não tem profissionais</h1>
+        <h1 className="text-xs font-bold uppercase text-gray-400">Não existem profissionais cadastrados</h1>
       ) : (
         <div className="grid grid-cols-2 gap-4 mb-10 lg:grid-cols-4 lg:gap-6">
           {professionals.map((professional) => (
@@ -162,3 +162,7 @@ const ListProfessionals = () => {
 };
 
 export default ListProfessionals;
+
+/*
+
+*/

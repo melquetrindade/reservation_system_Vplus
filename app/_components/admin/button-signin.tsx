@@ -12,7 +12,7 @@ const ButtonSignin = () => {
   };
 
   return (
-    <Button className="mt-6 gap-3" onClick={handleLoginWithGoogleClick}>
+    <Button className="mt-6 gap-3" onClick={handleLoginWithGoogleClick} variant="secondary">
       <Image alt="logo_google" src="/google.svg" height={20} width={20} />
       Google
     </Button>

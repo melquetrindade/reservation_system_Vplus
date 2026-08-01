@@ -71,24 +71,20 @@ const ContainerPageAgendamentos = () => {
 
       {loading ? (
         <>
-          <Skeleton className="mb-3 mt-6 h-4 w-24 uppercase bg-gray-200" />
+          <Skeleton className="mb-3 mt-6 h-4 w-35 uppercase bg-secondary" />
           <div className="gap-3 flex flex-col">
             {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}
-                className="flex justify-between min-w-[90%] bg-gray-200"
+                className="flex justify-between min-w-[90%] bg-secondary rounded-sm"
               >
-                <div className="flex flex-col items-center gap-2">
-                  <Skeleton className="h-5 w-10 bg-gray-200" />
-                  <Skeleton className="h-4 w-10 bg-gray-200" />
-                  <Skeleton className="h-3 w-10 bg-gray-200" />
-                </div>
+                <div className="flex h-15 w-10 flex-col items-center gap-2"></div>
               </div>
             ))}
           </div>
         </>
       ) : agendamentos.length === 0 ? (
-        <p>Nenhum agendamento encontrado</p>
+        <p className="mt-3 text-xs font-bold uppercase text-gray-400">Nenhum agendamento encontrado</p>
       ) : (
         <>
           {agendamentosFuturos.length > 0 && (

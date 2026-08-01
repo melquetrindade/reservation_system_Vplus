@@ -8,13 +8,6 @@ import { Card, CardContent } from "../ui/card";
 import { CalendarIcon, ClockPlusIcon, DollarSignIcon, TrendingUpIcon } from "lucide-react";
 import { Skeleton } from "../ui/skeleton";
 
-// Mostrar:
-// 1- Quantidade de agendamentos para hoje (Mostra a quantidade de pendentes) - OK
-// 2- Quantidade de horários livres para hoje - OK
-// 3- Receita prevista para o dia (Mostra a quantidade de agendamentos para hoje) - OK
-// 4- Receita do mês atual - OK
-// 5- Serviços mais vendidos (EX: mostrar um top-3)
-
 interface AgendamentoComServico {
     id: string;
     status: string;
@@ -107,12 +100,6 @@ const ContainerPageDashboard = () => {
 
     }, [agendamentosMES])
 
-    // export function getTop3Servicos(
-    //     agendamentos: AgendamentoComServico[],
-    //     ): TopServico[] {
-        
-    //     }
-
     const fetchData = async () => {
         try{
             setLoading(true)
@@ -140,7 +127,7 @@ const ContainerPageDashboard = () => {
             {loading ? (
                 <Skeleton className="mb-3 mt-6 h-4 w-24 uppercase bg-gray-200" />
             ) : (
-                <p className="text-base text-gray-700">Aqui está um resumo do que está acontecendo na sua barbearia hoje.</p>
+                <p className="text-sm font-semibold text-gray-400">Aqui está um resumo do que está acontecendo na sua barbearia hoje.</p>
             )}
 
             {loading ? (
@@ -164,13 +151,13 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-sm font-semibold text-gray-500 truncate">Agendamentos hoje</p>
-                                    <p className="text-lg font-bold">{agendamentosHJ.length}</p>
+                                    <p className="text-xs font-semibold truncate">Agendamentos hoje</p>
+                                    <p className="text-base font-bold">{agendamentosHJ.length}</p>
                                     <p className="text-xs font-semibold text-primary">{agendamentosPendentes.length} pendentes</p>
                                 </div>
                                 <div className="flex items-center w-[20%]">
-                                    <div className="bg-yellow-200 p-2 rounded-2xl">
-                                        <CalendarIcon className="text-yellow-500"/>
+                                    <div className="bg-yellow-200 p-2 rounded-lg">
+                                        <CalendarIcon className="text-yellow-500 w-4 h-4"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -180,12 +167,12 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-sm font-semibold truncate text-gray-500">Horários livres hoje</p>
-                                    <p className="text-lg font-bold">{horariosFuturoLivres.length}</p>
+                                    <p className="text-xs font-semibold truncate">Horários livres hoje</p>
+                                    <p className="text-base font-bold">{horariosFuturoLivres.length}</p>
                                 </div>
                                 <div className="flex items-center pt-5.5 w-[20%]">
-                                    <div className="bg-purple-200 p-2 rounded-2xl">
-                                        <ClockPlusIcon className="text-purple-500"/>
+                                    <div className="bg-purple-200 p-2 rounded-lg">
+                                        <ClockPlusIcon className="text-purple-500 w-4 h-4"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -195,8 +182,8 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-sm font-semibold text-gray-500 truncate">Receita de hoje</p>
-                                    <p className='text-lg font-bold'>
+                                    <p className="text-xs font-semibold truncate">Receita de hoje</p>
+                                    <p className='text-base font-bold'>
                                         {Intl.NumberFormat("pt-BR", {
                                             style: "currency",
                                             currency: "BRL",
@@ -204,8 +191,8 @@ const ContainerPageDashboard = () => {
                                     </p>
                                 </div>
                                 <div className="flex items-center w-[20%]">
-                                    <div className="bg-blue-200 p-2 rounded-2xl">
-                                        <TrendingUpIcon className="text-blue-500"/>
+                                    <div className="bg-blue-200 p-2 rounded-lg">
+                                        <TrendingUpIcon className="text-blue-500 w-4 h-4"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -215,8 +202,8 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-sm font-semibold text-gray-500 truncate">Receita do Mês</p>
-                                    <p className='text-lg font-bold'>
+                                    <p className="text-xs font-semibold truncate">Receita do Mês</p>
+                                    <p className='text-base font-bold'>
                                         {Intl.NumberFormat("pt-BR", {
                                             style: "currency",
                                             currency: "BRL",
@@ -224,8 +211,8 @@ const ContainerPageDashboard = () => {
                                     </p>
                                 </div>
                                 <div className="flex items-center w-[20%]">
-                                    <div className="bg-green-200 p-2 rounded-2xl">
-                                        <DollarSignIcon className="text-green-500"/>
+                                    <div className="bg-green-200 p-2 rounded-lg">
+                                        <DollarSignIcon className="text-green-500 w-4 h-4"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -234,7 +221,7 @@ const ContainerPageDashboard = () => {
 
                     <Card className="w-full mt-4">
                         <CardContent className="flex flex-col justify-start gap-1">
-                            <h2 className="text-base font-semibold text-gray-500 truncate">Serviços mais vendidos</h2>
+                            <h2 className="text-sm font-semibold truncate">Serviços mais vendidos</h2>
                                     
                             <div className="flex flex-col gap-5 mt-8">
                                 {top3Servicos.map((servico, index) => (

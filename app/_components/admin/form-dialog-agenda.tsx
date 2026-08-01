@@ -43,6 +43,7 @@ const FormDialogAgenda = ({
                             <FieldContent>
                                 <Input
                                 type="time"
+                                className="[&::-webkit-calendar-picker-indicator]:invert"
                                 {...form.register("horaInicio")}
                                 />
                             </FieldContent>
@@ -54,6 +55,7 @@ const FormDialogAgenda = ({
                             <FieldContent>
                                 <Input
                                 type="time"
+                                className="[&::-webkit-calendar-picker-indicator]:invert"
                                 {...form.register("horaFim")}
                                 />
                             </FieldContent>
@@ -79,6 +81,7 @@ const FormDialogAgenda = ({
                             <FieldContent>
                                 <Input
                                 type="time"
+                                className="[&::-webkit-calendar-picker-indicator]:invert"
                                 {...form.register("horaInicioIntervalo")}
                                 />
                             </FieldContent>
@@ -89,6 +92,7 @@ const FormDialogAgenda = ({
                             <FieldContent>
                                 <Input
                                 type="time"
+                                className="[&::-webkit-calendar-picker-indicator]:invert"
                                 {...form.register("horaFimIntervalo")}
                                 />
                             </FieldContent>

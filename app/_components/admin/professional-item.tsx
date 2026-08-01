@@ -164,7 +164,7 @@ const ProfessionalItem = ({
   };
 
   return (
-    <Card className="min-w-41.75 rounded-2xl bg-white">
+    <Card className="min-w-41.75 rounded-2xl bg-secondary">
       <CardContent>
         {/*Imagem */}
         <div className="relative h-44.75 w-full lg:h-55">
