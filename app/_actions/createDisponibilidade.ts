@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import { revalidatePath } from "next/cache";
 import { db } from "../_lib/prisma";
@@ -8,10 +8,10 @@ interface CreateDisponibilidadeProps {
   professionalId: string;
   selectedDay: Date;
   horaInicio: string; // "08:00"
-  horaFim: string;    // "18:00"
-  intervalo: number;  // 30 (minutos)
+  horaFim: string; // "18:00"
+  intervalo: number; // 30 (minutos)
   horaInicioIntervalo?: string; // "11:30"
-  horaFimIntervalo?: string;    // "13:30"
+  horaFimIntervalo?: string; // "13:30"
 }
 
 export const createDisponibilidade = async ({
@@ -23,6 +23,24 @@ export const createDisponibilidade = async ({
   horaInicioIntervalo,
   horaFimIntervalo,
 }: CreateDisponibilidadeProps) => {
+  const BRAZIL_TIMEZONE_OFFSET_MS = 3 * 60 * 60 * 1000;
+
+  const toBrazilDate = (date: Date, hour: number, minute: number) => {
+    const utcDate = new Date(
+      Date.UTC(
+        date.getUTCFullYear(),
+        date.getUTCMonth(),
+        date.getUTCDate(),
+        hour,
+        minute,
+        0,
+        0,
+      ),
+    );
+
+    return new Date(utcDate.getTime() + BRAZIL_TIMEZONE_OFFSET_MS);
+  };
+
   const data = startOfDay(selectedDay);
 
   // Converte os horários para minutos desde meia-noite
@@ -65,8 +83,11 @@ export const createDisponibilidade = async ({
       continue;
     }
 
-    const slotInicio = new Date(data);
-    slotInicio.setHours(Math.floor(minutos / 60), minutos % 60, 0, 0);
+    const slotInicio = toBrazilDate(
+      selectedDay,
+      Math.floor(minutos / 60),
+      minutos % 60,
+    );
 
     const slotFim = new Date(slotInicio);
     slotFim.setMinutes(slotFim.getMinutes() + intervalo);

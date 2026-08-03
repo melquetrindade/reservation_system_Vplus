@@ -117,10 +117,10 @@ const AgendamentoItem = ({ agendamento }: AgendamentoItemProps) => {
                         {/*Direita */}
                         <div className="flex flex-col items-center justify-center border-l-2 border-solid px-5">
                             <p className="text-sm capitalize">
-                                {format(agendamento.disponibilidade.data, "MMMM", { locale: ptBR })}
+                                {format(agendamento.disponibilidade.horaInicio, "MMMM", { locale: ptBR })}
                             </p>
                             <p className="text-2xl">
-                                {format(agendamento.disponibilidade.data, "dd", { locale: ptBR })}
+                                {format(agendamento.disponibilidade.horaInicio, "dd", { locale: ptBR })}
                             </p>
                             <p className="text-sm">
                                 {format(agendamento.disponibilidade.horaInicio, "HH:mm", { locale: ptBR })}

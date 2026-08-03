@@ -1,4 +1,4 @@
-"use server"
+"use server";
 
 import { revalidatePath } from "next/cache";
 import { db } from "../_lib/prisma";
@@ -17,6 +17,24 @@ export const addDisponibilidade = async ({
   horaInicio,
   intervalo,
 }: AddDisponibilidadeProps) => {
+  const BRAZIL_TIMEZONE_OFFSET_MS = 3 * 60 * 60 * 1000;
+
+  const toBrazilDate = (date: Date, hour: number, minute: number) => {
+    const utcDate = new Date(
+      Date.UTC(
+        date.getUTCFullYear(),
+        date.getUTCMonth(),
+        date.getUTCDate(),
+        hour,
+        minute,
+        0,
+        0,
+      ),
+    );
+
+    return new Date(utcDate.getTime() + BRAZIL_TIMEZONE_OFFSET_MS);
+  };
+
   const data = startOfDay(selectedDay);
 
   const parseTime = (time: string) => {
@@ -39,28 +57,39 @@ export const addDisponibilidade = async ({
     },
   });
 
+  const toLocalMinutesFromUtc = (date: Date) => {
+    const utcHours = date.getUTCHours();
+    const localHour = (utcHours - 3 + 24) % 24;
+    return localHour * 60 + date.getUTCMinutes();
+  };
+
   // Converte os horários existentes para intervalos em minutos
   const existingIntervals = existingSlots.map((slot) => {
     const hInicio = new Date(slot.horaInicio);
     const hFim = new Date(slot.horaFim);
     return {
-      inicio: hInicio.getHours() * 60 + hInicio.getMinutes(),
-      fim: hFim.getHours() * 60 + hFim.getMinutes(),
+      inicio: toLocalMinutesFromUtc(hInicio),
+      fim: toLocalMinutesFromUtc(hFim),
     };
   });
 
   // Verifica se o novo horário conflita com algum existente
   const hasConflict = existingIntervals.some(
-    (existing) => inicioMin < existing.fim && fimMin > existing.inicio
+    (existing) => inicioMin < existing.fim && fimMin > existing.inicio,
   );
 
   if (hasConflict) {
-    throw new Error("Este horário conflita com um horário já existente (LIVRE, BLOQUEADO ou RESERVADO).");
+    throw new Error(
+      "Este horário conflita com um horário já existente (LIVRE, BLOQUEADO ou RESERVADO).",
+    );
   }
 
   // Cria o slot
-  const slotInicio = new Date(data);
-  slotInicio.setHours(Math.floor(inicioMin / 60), inicioMin % 60, 0, 0);
+  const slotInicio = toBrazilDate(
+    selectedDay,
+    Math.floor(inicioMin / 60),
+    inicioMin % 60,
+  );
 
   const slotFim = new Date(slotInicio);
   slotFim.setMinutes(slotFim.getMinutes() + intervalo);
