@@ -77,7 +77,7 @@ const ContainerPageServices = ({id}: ContainerPageServicesProps) => {
                                 <SmartphoneIcon/>
                                 <p className='text-sm'>{professional?.telefone}</p>
                             </div>
-                            <Button onClick={handleCopyPhoneClick} variant='destructive' size='sm'>Copiar</Button>
+                            <Button onClick={handleCopyPhoneClick} variant="outline" size='sm'>Copiar</Button>
                         </div>
                     </>
                 )}

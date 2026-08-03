@@ -123,7 +123,7 @@ const AgendaProfessional = ({id}: AgendaProfessionalProps) => {
 
     return (
         <div className="lg:flex lg:flex-row lg:justify-center lg:mt-10 lg:w-full">
-            <div className='px-5 pb-4 flex justify-center lg:w-[50%] lg:items-center lg:pb-0'>
+            <div className='px-5 pb-4 pt-5 flex justify-center lg:w-[50%] lg:items-center lg:pb-0'>
                 <div className="w-full max-w-87.5 lg:max-w-95">
                     <Calendar
                         mode="single"
@@ -131,7 +131,7 @@ const AgendaProfessional = ({id}: AgendaProfessionalProps) => {
                         onSelect={handleDateSelect}
                         locale={ptBR}
                         disabled={{before: new Date()}}
-                        className='rounded-2xl w-full'
+                        className='rounded-2xl w-full bg-black/50'
                         classNames={{
                             root: "w-full",
                             weekday: "flex-1 capitalize text-center font-medium text-sm py-1",

@@ -14,7 +14,7 @@ const Header = () => {
                     <Link href="/">
                         <Image
                             alt="Logo Salão de beleza"
-                            src="/logo_oficialV2_2.png"
+                            src="/logo_dark_1.png"
                             fill
                             priority
                         />

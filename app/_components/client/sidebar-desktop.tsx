@@ -101,7 +101,7 @@ const SidebarDesktop = () => {
         <div className="relative h-19 w-18">
           <Image
               alt="Logo Salão de beleza"
-              src="/logo_oficial2.png"
+              src="/logo_dark_1.png"
               fill
               priority
           />

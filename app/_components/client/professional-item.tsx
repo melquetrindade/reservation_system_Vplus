@@ -11,7 +11,7 @@ interface ProfessioanlItemProps {
 const ProfessionalItem = ({professional}: ProfessioanlItemProps) => {
 
     return (
-        <Card className="min-w-41.75 rounded-2xl border-secondary bg-secondary ring-0 pt-0">
+        <Card className="min-w-41.75 max-w-60 rounded-2xl border-secondary bg-secondary ring-0 pt-0">
             <CardContent className="w-full px-1 pt-1">
                 
                 {/*Imagem */}
@@ -33,14 +33,14 @@ const ProfessionalItem = ({professional}: ProfessioanlItemProps) => {
 
                 {/*Texto */}
                 <div className="py-3 px-1 flex justify-center">
-                    <h3 className="truncate font-semibold text-xs">{professional.nome}</h3>
+                    <h3 className="truncate font-semibold text-sm">{professional.nome}</h3>
                 </div>
 
                 {/*Reservar */}
                 <div className="flex justify-center w-full">
                     <Link href={`/services/${professional.id}`} className="w-[90%]">
-                        <Button size="xs" className="w-full">
-                            <p className="text-xs">Serviços</p>
+                        <Button size="sm" className="w-full">
+                            <p className="text-sm">Serviços</p>
                         </Button>
                     </Link>
                 </div>

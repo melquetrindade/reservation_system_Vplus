@@ -254,11 +254,11 @@ const ShowSchedulesAgenda = ({
 
   return (
     <div className="px-5 flex flex-col items-center justify-center">
-      <h2 className="text-sm font-semibold mb-3">
+      <h2 className="text-sm font-semibold mb-3 lg:text-lg">
         Horários disponíveis em{" "}
         {format(selectedDay!, "dd 'de' MMMM", { locale: ptBR })}
       </h2>
-      <Card className="ring-0 border-secondary">
+      <Card className="ring-0 border-secondary bg-black/50">
         <CardContent className="p-4">
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
             {disponibilidade.map((slot) => (
@@ -343,7 +343,7 @@ const ShowSchedulesAgenda = ({
               <Field>
                 <FieldLabel>Horário</FieldLabel>
                 <FieldContent>
-                  <Input type="time" {...form.register("horaInicio")} />
+                  <Input type="time" className="[&::-webkit-calendar-picker-indicator]:invert" {...form.register("horaInicio")} />
                 </FieldContent>
               </Field>
 

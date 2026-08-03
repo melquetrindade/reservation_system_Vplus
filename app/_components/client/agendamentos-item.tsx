@@ -158,7 +158,7 @@ const AgendamentoItem = ({ agendamento }: AgendamentoItemProps) => {
                                 <SmartphoneIcon/>
                                 <p className='text-sm'>{agendamento.disponibilidade.profissional.telefone}</p>
                             </div>
-                            <Button onClick={() => handleCopyPhoneClick(agendamento.disponibilidade.profissional.telefone!)} variant='destructive' size='sm'>Copiar</Button>
+                            <Button onClick={() => handleCopyPhoneClick(agendamento.disponibilidade.profissional.telefone!)} variant="outline" size='sm'>Copiar</Button>
                         </div>
                     </div>
 

@@ -10,7 +10,7 @@ export default function Admin() {
           <div className="relative h-25 w-23">
             <Image
               alt="logo"
-              src="/logo_oficial2.png"
+              src="/logo_dark_1.png"
               fill
               priority
             />
