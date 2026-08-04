@@ -146,7 +146,7 @@ const ContainerPageDashboard = () => {
                 </>
             ) : (
                 <div>
-                    <div className="grid grid-cols-2 gap-1 lg:gap-4 mt-5">
+                    <div className="grid grid-cols-2 gap-2 lg:gap-4 mt-5">
                         {/*Agendamentos Hoje */}
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
