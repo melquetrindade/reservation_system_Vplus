@@ -26,6 +26,7 @@ type DisponibilidadeComAgendamentos = Prisma.DisponibilidadeGetPayload<{
             email: true
           };
         };
+        servico: true;
       };
     };
   };
@@ -124,7 +125,7 @@ const AgendaProfessional = ({id}: AgendaProfessionalProps) => {
     return (
         <div className="lg:flex lg:flex-row lg:justify-center lg:mt-10 lg:w-full">
             <div className='px-5 pb-4 pt-5 flex justify-center lg:w-[50%] lg:items-center lg:pb-0'>
-                <div className="w-full max-w-87.5 lg:max-w-95">
+                <div className="w-full max-w-87.5 lg:max-w-95 mt-4 lg:mt-0">
                     <Calendar
                         mode="single"
                         selected={selectedDay}

@@ -32,13 +32,13 @@ const ActionsServices = ({
 }: ActionsServicesProps) => {
     return (
         <div className="w-full">
-          <div className="flex flex-row justify-between gap-2 w-full mt-2 pr-1">
-            <Button className="w-[32%] bg-yellow-200 text-white" variant={null} onClick={handleOpenDialog}>
+          <div className="flex flex-row justify-between gap-2 w-full mt-0 pr-1">
+            <Button className="w-[32%] bg-yellow-200 text-white lg:h-8 lg:px-4 lg:py-2" size="sm" variant={null} onClick={handleOpenDialog}>
               <EditIcon className="text-yellow-500"/>
             </Button>
 
             <AlertDialog open={openDeleteDialog} onOpenChange={setOpenDeleteDialog}>
-              <AlertDialogTrigger render={<Button className="w-[31%] bg-red-200" variant={null}><UserRoundX className="text-red-500"/></Button>}>
+              <AlertDialogTrigger render={<Button className="w-[31%] bg-red-200 lg:h-8 lg:px-4 lg:py-2" size="sm" variant={null}><UserRoundX className="text-red-500"/></Button>}>
                 
               </AlertDialogTrigger>
 
@@ -72,7 +72,7 @@ const ActionsServices = ({
 
             <AlertDialog open={openDesactiveDialog} onOpenChange={setOpenDesactiveDialog}>
               <AlertDialogTrigger render={
-                <Button className="w-[30%] bg-blue-200 text-white" variant={null}>
+                <Button className="w-[30%] bg-blue-200 text-white lg:h-8 lg:px-4 lg:py-2" size="sm" variant={null}>
                   <BanIcon className="text-blue-500"/>
                 </Button>}>
               </AlertDialogTrigger>

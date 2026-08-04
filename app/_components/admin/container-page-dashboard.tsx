@@ -127,7 +127,7 @@ const ContainerPageDashboard = () => {
             {loading ? (
                 <Skeleton className="mb-3 mt-6 h-4 w-24 uppercase bg-gray-200" />
             ) : (
-                <p className="text-sm font-semibold text-gray-400">Aqui está um resumo do que está acontecendo na sua barbearia hoje.</p>
+                <p className="text-sm lg:text-base font-semibold text-gray-400">Aqui está um resumo do que está acontecendo na sua barbearia hoje.</p>
             )}
 
             {loading ? (
@@ -146,18 +146,18 @@ const ContainerPageDashboard = () => {
                 </>
             ) : (
                 <div>
-                    <div className="grid grid-cols-2 gap-4 mt-5">
+                    <div className="grid grid-cols-2 gap-1 lg:gap-4 mt-5">
                         {/*Agendamentos Hoje */}
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-xs font-semibold truncate">Agendamentos hoje</p>
+                                    <p className="text-xs lg:text-base font-semibold truncate">Agendamentos hoje</p>
                                     <p className="text-base font-bold">{agendamentosHJ.length}</p>
-                                    <p className="text-xs font-semibold text-primary">{agendamentosPendentes.length} pendentes</p>
+                                    <p className="text-xs lg:text-sm font-semibold text-primary">{agendamentosPendentes.length} pendentes</p>
                                 </div>
                                 <div className="flex items-center w-[20%]">
                                     <div className="bg-yellow-200 p-2 rounded-lg">
-                                        <CalendarIcon className="text-yellow-500 w-4 h-4"/>
+                                        <CalendarIcon className="text-yellow-500 w-4 h-4 lg:w-6 lg:h-6"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -167,12 +167,12 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-xs font-semibold truncate">Horários livres hoje</p>
+                                    <p className="text-xs lg:text-base font-semibold truncate">Horários livres hoje</p>
                                     <p className="text-base font-bold">{horariosFuturoLivres.length}</p>
                                 </div>
                                 <div className="flex items-center pt-5.5 w-[20%]">
                                     <div className="bg-purple-200 p-2 rounded-lg">
-                                        <ClockPlusIcon className="text-purple-500 w-4 h-4"/>
+                                        <ClockPlusIcon className="text-purple-500 w-4 h-4 lg:w-6 lg:h-6"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -182,7 +182,7 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-xs font-semibold truncate">Receita de hoje</p>
+                                    <p className="text-xs lg:text-base font-semibold truncate">Receita de hoje</p>
                                     <p className='text-base font-bold'>
                                         {Intl.NumberFormat("pt-BR", {
                                             style: "currency",
@@ -192,7 +192,7 @@ const ContainerPageDashboard = () => {
                                 </div>
                                 <div className="flex items-center w-[20%]">
                                     <div className="bg-blue-200 p-2 rounded-lg">
-                                        <TrendingUpIcon className="text-blue-500 w-4 h-4"/>
+                                        <TrendingUpIcon className="text-blue-500 w-4 h-4 lg:w-6 lg:h-6"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -202,7 +202,7 @@ const ContainerPageDashboard = () => {
                         <Card>
                             <CardContent className="flex flex-row justify-between gap-1">
                                 <div className="flex flex-col justify-start gap-2 w-[80%]">
-                                    <p className="text-xs font-semibold truncate">Receita do Mês</p>
+                                    <p className="text-xs lg:text-base font-semibold truncate">Receita do Mês</p>
                                     <p className='text-base font-bold'>
                                         {Intl.NumberFormat("pt-BR", {
                                             style: "currency",
@@ -212,7 +212,7 @@ const ContainerPageDashboard = () => {
                                 </div>
                                 <div className="flex items-center w-[20%]">
                                     <div className="bg-green-200 p-2 rounded-lg">
-                                        <DollarSignIcon className="text-green-500 w-4 h-4"/>
+                                        <DollarSignIcon className="text-green-500 w-4 h-4 lg:w-6 lg:h-6"/>
                                     </div>
                                 </div>
                             </CardContent>
@@ -221,7 +221,7 @@ const ContainerPageDashboard = () => {
 
                     <Card className="w-full mt-4">
                         <CardContent className="flex flex-col justify-start gap-1">
-                            <h2 className="text-sm font-semibold truncate">Serviços mais vendidos</h2>
+                            <h2 className="text-sm lg:text-base font-semibold truncate">Serviços mais vendidos</h2>
                                     
                             <div className="flex flex-col gap-5 mt-8">
                                 {top3Servicos.map((servico, index) => (
@@ -231,11 +231,11 @@ const ContainerPageDashboard = () => {
                                                 {index + 1}
                                             </div>
                                             <div className="flex flex-col">
-                                                <h2 className="text-base font-semibold truncate">{servico.nome}</h2>
-                                                <p className="text-gray-500">{servico.quantidadeAtendimentos} atendimentos</p>
+                                                <h2 className="text-sm lg:text-base font-semibold truncate">{servico.nome}</h2>
+                                                <p className="text-xs lg:text-sm text-gray-500">{servico.quantidadeAtendimentos} atendimentos</p>
                                             </div>
                                         </div>
-                                        <p className='font-bold'>
+                                        <p className='font-bold lg:text-base text-sm'>
                                             {Intl.NumberFormat("pt-BR", {
                                                 style: "currency",
                                                 currency: "BRL",

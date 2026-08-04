@@ -123,7 +123,7 @@ const ListAdmin = () => {
                     ))}
                 </div>
             ) : (
-                <h1 className="text-xs font-bold uppercase text-gray-400">Não existem administradores cadastrados</h1>
+                <p className="text-xs lg:text-base font-semibold uppercase text-gray-400">Não existem administradores cadastrados</p>
             )}
 
             <Dialog

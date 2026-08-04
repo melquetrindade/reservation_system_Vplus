@@ -28,6 +28,7 @@ export const getDisponibilidade = async ({selectedDay, professionalId}: GetDispo
                             email: true
                         },
                     },
+                    servico: true
                 },
             },
         },

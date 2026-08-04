@@ -170,8 +170,8 @@ const ServiceItem = ({ service, setServices }: ServiceItemProps) => {
   };
 
   return (
-    <Card className="min-w-41.75 rounded-2xl bg-secondary">
-      <CardContent>
+    <Card className="min-w-41.75 max-w-60 rounded-2xl bg-secondary ring-0 pt-0">
+      <CardContent className="w-full px-1 pt-1">
         {/*Imagem */}
         <div className="relative h-44.75 w-full lg:h-55">
           {service.imgURL ? (
@@ -202,7 +202,7 @@ const ServiceItem = ({ service, setServices }: ServiceItemProps) => {
 
         {/*Texto */}
         <div className="py-3 px-1 flex justify-center">
-          <h3 className="truncate font-semibold">{service.nome}</h3>
+          <h3 className="truncate font-semibold text-xs lg:text-base">{service.nome}</h3>
         </div>
 
         <ActionsServices

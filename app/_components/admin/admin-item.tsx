@@ -109,19 +109,19 @@ const AdminItem = ({admin, setAdministrators}: AdminItemProps) => {
     };
 
     return (
-        <Card className="w-full rounded-2xl bg-secondary">
+        <Card className="w-full rounded-2xl bg-secondary py-0 lg:py-3">
             <CardContent className="flex flex-row gap-2 w-full">
 
                 <div className="flex flex-col justify-start w-[75%]">
                     {/*Imagem */}
                     <div className="h-10 flex items-center justify-center rounded-2xl">
-                        <ShieldUserIcon size={38} className="text-primary" />
+                        <ShieldUserIcon className="text-primary w-6 h-6 lg:w-10 lg:h-10" />
                     </div>
 
                     {/*Texto */}
                     <div className="py-3 px-1 flex flex-col items-start gap-1">
-                        <h3 className="truncate font-semibold text-white">{admin.nome}</h3>
-                        <p className="truncate text-sm text-gray-400">{admin.email}</p>
+                        <h3 className="truncate font-semibold text-sm lg:text-base text-white">{admin.nome}</h3>
+                        <p className="truncate text-xs lg:text-base text-gray-400">{admin.email}</p>
                     </div>
                 </div>
                 

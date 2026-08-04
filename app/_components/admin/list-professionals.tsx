@@ -118,9 +118,9 @@ const ListProfessionals = () => {
           </div>
         </>
       ) : professionals.length == 0 ? (
-        <h1 className="text-xs font-bold uppercase text-gray-400">Não existem profissionais cadastrados</h1>
+        <p className="text-xs lg:text-base font-semibold uppercase text-gray-400">Não existem profissionais cadastrados</p>
       ) : (
-        <div className="grid grid-cols-2 gap-4 mb-10 lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-2 gap-3 mb-10 lg:grid-cols-4 lg:gap-6">
           {professionals.map((professional) => (
             <ProfessionalItem
               key={professional.id}

@@ -102,19 +102,21 @@ const ListServices = ({ id }: ListServicesProps) => {
 
   return (
     <div className="p-5">
-      <div className="flex items-center justify-between mb-7 gap-3">
-        { loading ? (
-          <Skeleton className="h-4 w-40 bg-secondary" />
-        ) : nameProfessional && (
-          <div>
-            <h1 className="font-semibold text-sm text-white">Serviços de {nameProfessional}</h1>
-          </div>
-        )}
-        
+      <div className="flex items-center justify-end mb-2">
         <Button onClick={handleOpenDialog} variant={null} className="bg-green-200 text-green-500">
           <CirclePlusIcon />
           Cadastrar serviços
         </Button>
+      </div>
+
+      <div className="flex items-center justify-start mb-6">
+        { loading ? (
+          <Skeleton className="h-4 w-40 bg-secondary" />
+        ) : nameProfessional && (
+          <div>
+            <h1 className="font-semibold text-sm lg:text-base text-white">Serviços de {nameProfessional}</h1>
+          </div>
+        )}
       </div>
 
       { loading ? (
@@ -134,7 +136,7 @@ const ListServices = ({ id }: ListServicesProps) => {
           </div>
         </>
       ) : services.length > 0 ? (
-        <div className="grid grid-cols-2 gap-4 mb-10 lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-2 gap-3 mb-10 lg:grid-cols-4 lg:gap-6">
           {services.map((service) => (
             <ServiceItem
               key={service.id}
@@ -144,7 +146,7 @@ const ListServices = ({ id }: ListServicesProps) => {
           ))}
         </div>
       ) : (
-        <p className="text-xs font-bold uppercase text-gray-400">Este profissional não tem serviços cadastrados</p>
+        <p className="text-xs lg:text-base font-semibold uppercase text-gray-400">Este profissional não tem serviços cadastrados</p>
       )}
 
       <Dialog

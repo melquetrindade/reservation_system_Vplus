@@ -36,17 +36,17 @@ const ActionsProfessionals = ({
     return (
         <div className="w-full">
           
-          <Button className="w-full text-white" variant="default">
-            <Link href={`/admin/calendar/${professionalId}`}>Ver agenda</Link>
+          <Button className="w-full text-white lg:py-3" size="sm" variant="default">
+            <Link href={`/admin/calendar/${professionalId}`} className="lg:text-base text-xs">Ver agenda</Link>
           </Button>
 
           <div className="flex flex-row justify-between gap-2 w-full mt-2 pr-1">
-            <Button className="w-[32%] bg-yellow-200 text-white" variant={null} onClick={handleOpenDialog}>
+            <Button className="w-[32%] bg-yellow-200 text-white lg:h-8 lg:px-4 lg:py-2" size="sm" variant={null} onClick={handleOpenDialog}>
               <EditIcon className="text-yellow-500"/>
             </Button>
 
             <AlertDialog open={openDeleteDialog} onOpenChange={setOpenDeleteDialog}>
-              <AlertDialogTrigger render={<Button className="bg-red-200 w-[31%]" variant={null}><UserRoundX className="text-red-500"/></Button>}>
+              <AlertDialogTrigger render={<Button className="bg-red-200 w-[31%] lg:h-8 lg:px-4 lg:py-2" size="sm" variant={null}><UserRoundX className="text-red-500"/></Button>}>
                 
               </AlertDialogTrigger>
 
@@ -80,7 +80,7 @@ const ActionsProfessionals = ({
 
             <AlertDialog open={openDesactiveDialog} onOpenChange={setOpenDesactiveDialog}>
               <AlertDialogTrigger render={
-                <Button className="w-[30%] bg-blue-200 text-white" variant={null}>
+                <Button className="w-[30%] bg-blue-200 text-white lg:h-8 lg:px-4 lg:py-2" size="sm" variant={null}>
                   <BanIcon className="text-blue-500"/>
                 </Button>}>
               </AlertDialogTrigger>
@@ -114,11 +114,10 @@ const ActionsProfessionals = ({
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
-
             
           </div>
-          <Button className="w-full mt-2 border-white border text-white" variant={null}>
-            <Link href={`/admin/service/${professionalId}`}>Serviços</Link>
+          <Button className="w-full mt-2 lg:py-3 border-white border text-white" size="sm" variant={null}>
+            <Link href={`/admin/service/${professionalId}`} className="lg:text-base text-xs">Serviços</Link>
           </Button>
         </div>
     );

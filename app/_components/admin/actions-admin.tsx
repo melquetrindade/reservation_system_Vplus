@@ -22,13 +22,13 @@ const ActionsAdmin = ({
 }: ActionsAdminProps) => {
     return (
         <div className="w-[25%]">
-          <div className="flex flex-row justify-between gap-1 w-full h-full">
-            <Button className="h-full w-[48%] bg-yellow-200 text-yellow-500" variant={null} onClick={handleOpenDialog}>
+          <div className="flex flex-row justify-between items-center gap-1 w-full h-full">
+            <Button className="h-[70%] lg:h-full w-[48%] bg-yellow-200 text-yellow-500" variant={null} onClick={handleOpenDialog}>
               <EditIcon />
             </Button>
 
             <AlertDialog open={openDeleteDialog} onOpenChange={setOpenDeleteDialog}>
-              <AlertDialogTrigger render={<Button className="h-full w-[48%] bg-red-200" variant={null}><UserRoundX className="text-red-500"/></Button>}>
+              <AlertDialogTrigger render={<Button className="h-[70%] lg:h-full w-[48%] bg-red-200" variant={null}><UserRoundX className="text-red-500"/></Button>}>
                 
               </AlertDialogTrigger>
 

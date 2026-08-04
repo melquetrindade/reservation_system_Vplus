@@ -121,7 +121,7 @@ const ContainerPageServices = ({id}: ContainerPageServicesProps) => {
                     </div>
                 </>
             ) : (
-                <h2>Não existe serviços</h2>
+                <p className="text-xs lg:text-base font-semibold uppercase text-gray-400">Este profissional não tem serviços cadastrados</p>
             )}
 
         </div>

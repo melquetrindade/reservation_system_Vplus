@@ -40,6 +40,7 @@ type DisponibilidadeComAgendamentos = Prisma.DisponibilidadeGetPayload<{
             email: true;
           };
         };
+        servico: true;
       };
     };
   };
@@ -126,7 +127,7 @@ const ShowSchedulesAgenda = ({
 
   const titleDialog = (slot: DisponibilidadeComAgendamentos) => {
     if (slot.status === "RESERVADO") {
-      return "Informação do Cliente";
+      return "Informações do Cliente";
     } else if (slot.status === "BLOQUEADO") {
       return "Desbloquear horário";
     }
@@ -271,10 +272,10 @@ const ShowSchedulesAgenda = ({
               >
                 <DialogTrigger onClick={() => setSelectedSlot(slot)}>
                   <div
-                    className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm ${slot.status === "LIVRE" ? "bg-green-100" : slot.status === "RESERVADO" ? "bg-yellow-100" : "bg-gray-100"}`}
+                    className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs lg:text-sm ${slot.status === "LIVRE" ? "bg-green-100" : slot.status === "RESERVADO" ? "bg-yellow-100" : "bg-gray-100"}`}
                   >
                     <ClockIcon
-                      size={14}
+                      size={12}
                       className={`${slot.status === "LIVRE" ? "text-green-600" : slot.status === "RESERVADO" ? "text-yellow-600" : "text-gray-600"}`}
                     />
                     <span
@@ -293,6 +294,34 @@ const ShowSchedulesAgenda = ({
                     <DialogDescription>
                       {descriptionDialog(slot)}
                     </DialogDescription>
+
+                    {slot.status === "RESERVADO" && (
+                      <div>
+                        <DialogTitle>
+                          Informações do Serviço
+                        </DialogTitle>
+                        
+                        <DialogDescription>
+                          <div className="p-4 flex flex-col items-start">
+                            <p>
+                              <span className="font-semibold">Serviço: </span>
+                              {slot.agendamentos[0]?.servico?.nome}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Preço: </span>
+                              {Intl.NumberFormat("pt-BR", {
+                                  style: "currency",
+                                  currency: "BRL",
+                              }).format(Number(slot.agendamentos[0]?.servico?.preco))}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Duração: </span>
+                              {slot.agendamentos[0]?.servico?.tempo} minutos
+                            </p>
+                          </div>
+                        </DialogDescription>
+                      </div>
+                    )}
                   </DialogHeader>
 
                   <Button
